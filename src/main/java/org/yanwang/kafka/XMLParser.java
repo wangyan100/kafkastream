@@ -19,8 +19,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * @author yanwang this xmlparser will get text content of the tag, in our case
- * the tagname is ns1:MsgType
+ * @author yanwang this xmlparser will get text content of the tag
  */
 public class XMLParser {
 
@@ -45,7 +44,7 @@ public class XMLParser {
         }
     }
 
-    //ns1:MsgType ns1 is namespace uri, MsgType is localName
+
     public static String getTextContentFromTagLocalName(String xmlString, String nameSpace, String localName) {
         String textContent = null;
         try {
