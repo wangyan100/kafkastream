@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.yanwang.kafka;
+package org.yw.kafka;
 
 import org.apache.kafka.common.config.SslConfigs;
 import org.apache.kafka.common.serialization.Serde;

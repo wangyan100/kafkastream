@@ -1,6 +1,6 @@
-package com.yanwang.kafka;
+package com.yw.kafka;
 
-import org.yanwang.kafka.XMLParser;
+import org.yw.kafka.XMLParser;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

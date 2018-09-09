@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.dbschenker.rail.sresb.messages.util</groupId>
+    <groupId>org.yw.kafka</groupId>
     <artifactId>kafkastreamsapp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>kafkastreamsapp</name>
-    <url>http://www.db.com</url>
+    <url>http://www.yw.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
