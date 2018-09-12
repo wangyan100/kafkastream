@@ -23,50 +23,45 @@ import java.io.StringReader;
  */
 public class XMLParser {
 
-    private static final Logger logger = LoggerFactory.getLogger(XMLParser.class);
+	private static final Logger logger = LoggerFactory.getLogger(XMLParser.class);
 
-   
+	public static boolean checkMatchs(String textContent, String matchePattern) {
+		boolean matched = false;
+		try {
+			String[] tokens = matchePattern.split(",");
+			for (String token : tokens) {
+				matched = (textContent.trim().equalsIgnoreCase(token.trim()));
+				if (matched) {
+					break;
+				}
+			}
+			return matched;
+		} catch (Exception e) {
+			logger.error("Exception occured ", e);
+			return matched;
+		}
+	}
 
-    public static boolean checkMatchs(String textContent, String matchePattern) {
-        boolean matched = false;
-        try {
-            String[] tokens = matchePattern.split(",");
-            for (String token : tokens) {
-                matched = (textContent.trim().equalsIgnoreCase(token.trim()));
-                if (matched) {
-                    break;
-                }
-            }
-            return matched;
-        } catch (Exception e) {
-            logger.error("Exception occured ", e);
-            return matched;
-        }
-    }
+	public static String getTextContentFromTagLocalName(String xmlString, String nameSpace, String localName) {
+		String textContent = null;
+		try {
 
+			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			documentBuilderFactory.setNamespaceAware(true);
+			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-    public static String getTextContentFromTagLocalName(String xmlString, String nameSpace, String localName) {
-        String textContent = null;
-        try {
-        	
-        	 DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-             documentBuilderFactory.setNamespaceAware(true);
-             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			InputSource is = new InputSource();
+			is.setCharacterStream(new StringReader(xmlString));
 
-           
-
-            InputSource is = new InputSource();
-            is.setCharacterStream(new StringReader(xmlString));
-
-            Document doc = documentBuilder.parse(is);
-            NodeList nodeList = doc.getElementsByTagNameNS(nameSpace, localName);
-            if (nodeList.getLength() > 0) {
-                textContent = nodeList.item(0).getTextContent();
-            }
-            return textContent;
-        } catch (IOException | ParserConfigurationException | DOMException | SAXException e) {
-            logger.error("Error happened at XMLParser ", e);
-            return textContent;
-        }
-    }
+			Document doc = documentBuilder.parse(is);
+			NodeList nodeList = doc.getElementsByTagNameNS(nameSpace, localName);
+			if (nodeList.getLength() > 0) {
+				textContent = nodeList.item(0).getTextContent();
+			}
+			return textContent;
+		} catch (IOException | ParserConfigurationException | DOMException | SAXException e) {
+			logger.error("Error happened at XMLParser ", e);
+			return textContent;
+		}
+	}
 }
