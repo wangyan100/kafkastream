@@ -25,7 +25,7 @@ public class XMLParser {
 
     private static final Logger logger = LoggerFactory.getLogger(XMLParser.class);
 
-    static private DocumentBuilder documentBuilder;
+   
 
     public static boolean checkMatchs(String textContent, String matchePattern) {
         boolean matched = false;
@@ -48,12 +48,12 @@ public class XMLParser {
     public static String getTextContentFromTagLocalName(String xmlString, String nameSpace, String localName) {
         String textContent = null;
         try {
+        	
+        	 DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+             documentBuilderFactory.setNamespaceAware(true);
+             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
-            if (documentBuilder == null) {
-                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-                documentBuilderFactory.setNamespaceAware(true);
-                documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            }
+           
 
             InputSource is = new InputSource();
             is.setCharacterStream(new StringReader(xmlString));
