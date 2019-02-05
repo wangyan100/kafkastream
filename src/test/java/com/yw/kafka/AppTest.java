@@ -1,5 +1,7 @@
 package com.yw.kafka;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.yw.kafka.XMLParser;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -16,10 +18,11 @@ import scala.App;
  * Unit test for simple App.
  */
 public class AppTest {
+      Logger logger = LoggerFactory.getLogger(AppTest.class);
 
     @Test
     public void checkMatches() throws FileNotFoundException, IOException {
-
+        logger.info("checkMatches is invoked ...");
         InputStream in = new FileInputStream(App.class.getClassLoader().getResource("message1.xml").getFile());
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         StringBuilder result = new StringBuilder();
@@ -55,6 +58,5 @@ public class AppTest {
 
         assertTrue(content != null);
     }
-
 
 }
