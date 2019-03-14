@@ -65,7 +65,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>de.dbschenker.rail.sresb.messages.util.KafkaStreamsApp</mainClass>
+                            <mainClass>org.yw.kafka.KafkaStreamsApp</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
